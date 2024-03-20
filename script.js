@@ -5,7 +5,7 @@ function calcularOrcamento() {
   const preco = parseFloat(document.getElementById('preco').value);
 
   // Calcular o custo total
-  const custoTotal = metrosQuadrados * preco;
+  const custoTotal = (metrosQuadrados * preco) * 1.25;
 
   // Exibir o resultado na página
   const resultadoElement = document.getElementById('resultado');
