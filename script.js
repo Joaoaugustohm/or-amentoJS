@@ -9,5 +9,5 @@ function calcularOrcamento() {
 
   // Exibir o resultado na página
   const resultadoElement = document.getElementById('resultado');
-  resultadoElement.textContent = `Nome do Tecido: ${nome}\nMetros Quadrados: ${metrosQuadrados} m²\nCusto Total: R$ ${custoTotal.toFixed(2)}`;
+  resultadoElement.textContent = `Nome do Produto: ${nome}\nMetros Quadrados: ${metrosQuadrados} m²\nCusto Total: R$ ${custoTotal.toFixed(2)}`;
 }
