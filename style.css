@@ -61,6 +61,12 @@ button:hover {
   font-weight: bold;
 }
 
+.img {
+  max-width: 200px;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+}
 img {
   max-width: 200px;
 }
