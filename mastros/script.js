@@ -5,6 +5,7 @@ function calcularOrcamento() {
   var quantidadeMastro = parseInt(document.getElementById("quantidadeMastro").value);
   var metrosQuadrados = parseFloat(document.getElementById("metrosQuadrados").value);
   var ponteiras = parseInt(document.getElementById("ponteiras").value);
+  var margemlucro = parseFloat(document.getElementById("margemlucro").value);
 
   // Defina os preços para cada item
   var precoMastro = 23; // Preço por metro de mastro
@@ -18,9 +19,11 @@ function calcularOrcamento() {
   var totalLona = metrosQuadrados * precoLona;
   var totalbaseponteira = ponteiras * (precoPonteira + precobase);
   var totalhora = (metrosQuadrados * 0.8) * homemhora;
+  var margemlucro = (margemlucro / 100) + 1;
 
   // Calculando o total geral
-  var totalGeral = (totalMastro + totalLona + totalbaseponteira + totalhora) * 1.318;
+  var comp = ((totalMastro + totalLona + totalbaseponteira + totalhora) * 1.318);
+  var totalGeral = ((totalMastro + totalLona + totalbaseponteira + totalhora) * 1.318) * margemlucro;
 
   // Exibindo o resultado na página
   var resultado = document.getElementById("resultado");
@@ -29,5 +32,6 @@ function calcularOrcamento() {
     "<p>Total Lona: R$" + totalLona.toFixed(2) + "</p>" +
     "<p>Total Ponteiras: R$" + totalbaseponteira.toFixed(2) + "</p>" +
     "<p>Total Hora: R$" + totalhora.toFixed(2) + "</p>" +
+    "<p>Composição: R$" + comp.toFixed(2) + "</p>" +
     "<p>Total Geral: R$" + totalGeral.toFixed(2) + "</p>";
 }
