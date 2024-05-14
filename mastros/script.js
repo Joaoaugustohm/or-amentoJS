@@ -11,16 +11,16 @@ function calcularOrcamento() {
   var precoLona = 60; // Preço por metro quadrado de lona
   var precoPonteira = 75; // Preço por ponteira
   var precobase = 190; // Preço por base
-
+  var homemhora = 40; // Preço por hora de mão de obra
 
   // Calculando o total para cada item
   var totalMastro = tamanhoMastro * precoMastro * quantidadeMastro;
   var totalLona = metrosQuadrados * precoLona;
   var totalbaseponteira = ponteiras * (precoPonteira + precobase);
-
+  var totalhora = (metrosQuadrados * 0.8) * homemhora;
 
   // Calculando o total geral
-  var totalGeral = (totalMastro + totalLona + totalbaseponteira) * 1.65;
+  var totalGeral = (totalMastro + totalLona + totalbaseponteira + totalhora) * 1.318;
 
   // Exibindo o resultado na página
   var resultado = document.getElementById("resultado");
@@ -28,5 +28,6 @@ function calcularOrcamento() {
     "<p>Total Mastro: R$" + totalMastro.toFixed(2) + "</p>" +
     "<p>Total Lona: R$" + totalLona.toFixed(2) + "</p>" +
     "<p>Total Ponteiras: R$" + totalbaseponteira.toFixed(2) + "</p>" +
+    "<p>Total Hora: R$" + totalhora.toFixed(2) + "</p>" +
     "<p>Total Geral: R$" + totalGeral.toFixed(2) + "</p>";
 }
