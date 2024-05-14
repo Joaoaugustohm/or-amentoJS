@@ -1,14 +1,32 @@
+
 function calcularOrcamento() {
-  // Obter os valores dos campos de entrada
-  const nome = document.getElementById('nome').value;
-  const metrosQuadrados = parseFloat(document.getElementById('metrosQuadrados').value);
-  const preco = parseFloat(document.getElementById('preco').value);
+  // Obtendo os valores dos campos do formulário
+  var tamanhoMastro = parseFloat(document.getElementById("tamanhoMastro").value);
+  var quantidadeMastro = parseInt(document.getElementById("quantidadeMastro").value);
+  var metrosQuadrados = parseFloat(document.getElementById("metrosQuadrados").value);
+  var ponteiras = parseInt(document.getElementById("ponteiras").value);
 
-  // Calcular o custo total
-  const custoTotal = ((metrosQuadrados * preco) * 1.25) * 1.62;
-  // Exibir o resultado na página
-  const resultadoElement = document.getElementById('resultado');
-  resultadoElement.textContent = `Nome do Produto: ${nome}\nMetros Quadrados: ${metrosQuadrados} 
-  m²\nCusto Total: R$ ${custoTotal.toFixed(2)}`;
+  // Defina os preços para cada item
+  var precoMastro = 23; // Preço por metro de mastro
+  var precoLona = 60; // Preço por metro quadrado de lona
+  var precoPonteira = 75; // Preço por ponteira
+  var precobase = 190; // Preço por base
+
+
+  // Calculando o total para cada item
+  var totalMastro = tamanhoMastro * precoMastro * quantidadeMastro;
+  var totalLona = metrosQuadrados * precoLona;
+  var totalbaseponteira = ponteiras * (precoPonteira + precobase);
+
+
+  // Calculando o total geral
+  var totalGeral = (totalMastro + totalLona + totalbaseponteira) * 1.65;
+
+  // Exibindo o resultado na página
+  var resultado = document.getElementById("resultado");
+  resultado.innerHTML = "<h2>Orçamento</h2>" +
+    "<p>Total Mastro: R$" + totalMastro.toFixed(2) + "</p>" +
+    "<p>Total Lona: R$" + totalLona.toFixed(2) + "</p>" +
+    "<p>Total Ponteiras: R$" + totalbaseponteira.toFixed(2) + "</p>" +
+    "<p>Total Geral: R$" + totalGeral.toFixed(2) + "</p>";
 }
-
